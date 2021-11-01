@@ -1,0 +1,31 @@
+{
+  "name": "darkfox/db-server-management",
+  "version": "0.0.1",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+
+  "authors": [
+    {
+      "name" : "Kamil Kmetyk",
+      "email": "kamil.kmetyk@darkfox.pl",
+      "role": "Lead Developer"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "DarkFox\\BotSM\\": "src/"
+    }
+  },
+
+  "require": {
+    "ext-mbstring": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "php": "8.*",
+
+    "team-reflex/discord-php": "v6.0.2",
+    "discord-php/slash": "v1.0.5"
+  }
+}
