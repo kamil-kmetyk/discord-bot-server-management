@@ -1,6 +1,7 @@
 <?php
-namespace DarkFox\BotSM\Tools;
+namespace DarkFox\BotSM\Config;
 
+use DarkFox\BotSM\Tools\Directory;
 use Exception;
 use ReflectionClass;
 
