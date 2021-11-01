@@ -2,6 +2,7 @@
 namespace DarkFox\BotSM\Core;
 
 use DarkFox\BotSM\Config\DiscordConfig;
+use DarkFox\BotSM\Events\Core\EventFactory;
 use Discord\Discord;
 use Discord\Slash\Client;
 
@@ -26,11 +27,11 @@ final class Bot
   }
 
   protected function setup() {
-
+    $this->initializeEvents();
   }
 
-  protected function handleEvents() {
-
+  protected function initializeEvents() {
+    (new EventFactory)->initializeHandlers($this->discord, $this->client);
   }
 
 }
