@@ -12,7 +12,7 @@ abstract class Factory
     }
 
     $reflection = new \ReflectionClass($instanceName);
-    return $reflection->newInstance($args);
+    return $reflection->newInstanceArgs(...$args);
   }
 
   protected function canBeCreated(string $instanceName): bool {
@@ -24,7 +24,7 @@ abstract class Factory
       return false;
     }
 
-    if (is_string($this->implementationName) && !class_implements($this->implementationName)) {
+    if (is_string($this->implementationName) && false === class_implements($this->implementationName)) {
       return false;
     }
 
