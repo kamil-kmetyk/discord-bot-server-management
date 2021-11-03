@@ -6,6 +6,7 @@ use DarkFox\BotSM\Config\GuildConfig;
 use DarkFox\BotSM\Core\BotConstructor;
 use Discord\Discord;
 use Discord\Slash\Client;
+use Discord\WebSockets\Event;
 
 abstract class EventBase extends BotConstructor implements IEvent
 {
@@ -17,8 +18,11 @@ abstract class EventBase extends BotConstructor implements IEvent
 
     $this->guildConfig = new GuildConfig;
     $this->channelsConfig = new ChannelsConfig;
+
+    $this->init();
   }
 
   abstract public function handle(): EventBase;
+  protected function init(): void {}
 
 }

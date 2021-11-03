@@ -7,6 +7,7 @@ use DarkFox\BotSM\Config\GuildConfig;
 use DarkFox\BotSM\Events\Core\EventFactory;
 use Discord\Discord;
 use Discord\Slash\Client;
+use Discord\WebSockets\Intents;
 use ReflectionClass;
 
 final class Bot
@@ -39,7 +40,13 @@ final class Bot
 
   protected function connect(): Bot {
     $this->config = new DiscordConfig;
-    $this->discord = new Discord([ 'token' => $this->config->token ]);
+    $this->discord = new Discord([
+      'token' => $this->config->token,
+      'retrieveBans' => true,
+      'loadAllMembers' => true,
+      'storeMessages' => true,
+       'intents' => Intents::getAllIntents(),
+    ]);
     $this->client = new Client([ 'loop' => $this->discord->getLoop() ]);
 
     $this->client->linkDiscord($this->discord);
